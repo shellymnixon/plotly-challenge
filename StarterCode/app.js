@@ -46,6 +46,31 @@ function buildchart(sampleID){
             title: "Top 10 OTUs Found",}
 
         Plotly.newPlot("bar", data, layout);
+
+        var x_data = filterdata[0].otu_ids;
+        var y_data = filterdata[0].sample_values;
+        var o_labels = filterdata[0].otu_labels;
+
+        var trace2 = {
+            x: x_data,
+            y: y_data,
+            mode: "markers",
+            marker:{
+                size: filterdata[0].sample_values,
+                color: filterdata[0].otu_ids}
+
+        };
+
+        var layout1 = {
+            title: "Sample Display",
+            xaxis: {
+                title: filterdata[0].id
+            }   
+        }
+
+        var data1 = [trace2];   
+
+        Plotly.newPlot("bubble", data1, layout1);
     })
 };
 
