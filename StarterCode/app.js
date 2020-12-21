@@ -14,7 +14,8 @@ DropDown()
 function buildtable(sampleID){
     d3.json("samples.json").then((sampledata)=>{
         var metadata = sampledata.metadata
-        var locate = d3.select("#sample-metadata")
+        var locate = d3.select("#sample-metadata") 
+        locate.html("")
         var filterdata = metadata.filter(x => x.id == sampleID)
         console.log(filterdata)
         Object.entries(filterdata[0]).forEach((Element) => {
